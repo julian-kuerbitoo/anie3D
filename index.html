@@ -13,18 +13,37 @@
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js">
     </script>
     <model-viewer
-      src="https://cdn.jsdelivr.net/gh/julian-kuerbitoo/anie3D@main/AnieChibiRetopo-final-v2.glb"
-      auto-rotate
-      auto-rotate-delay="0"
-      rotation-per-second="15deg"
+      id="viewer"
+      src="https://cdn.jsdelivr.net/gh/julian-kuerbitoo/anie3D@main/AnieChibiRetopo-v2.glb"
       camera-controls
       disable-zoom
-      min-camera-orbit="auto auto auto"
-      max-camera-orbit="auto auto auto"
       camera-orbit="0deg 75deg 105%"
-      environment-image="neutral"
-      exposure="1.2"
-      shadow-intensity="0.8">
+      exposure="1.1"
+      shadow-intensity="0.6">
+
+      <script>
+        const viewer = document.getElementById('viewer');
+        viewer.addEventListener('load', () => {
+          const scene = viewer.querySelector('scene');
+
+          // Luz principal - Petal Frost (rosado suave, frontal)
+          viewer.setEnvironmentAndSkybox = null;
+
+          const mainLight = new THREE.DirectionalLight(0xFBDAF7, 2.0);
+          mainLight.position.set(2, 3, 2);
+          viewer[$scene].add(mainLight);
+
+          // Rim light - Medium Slate Blue (detrás, da volumen)
+          const rimLight = new THREE.DirectionalLight(0x7B75D1, 1.5);
+          rimLight.position.set(-2, 2, -3);
+          viewer[$scene].add(rimLight);
+
+          // Fill light - Pastel Petal (lado izquierdo, suaviza sombras)
+          const fillLight = new THREE.DirectionalLight(0xF4C3D0, 1.0);
+          fillLight.position.set(-3, 1, 1);
+          viewer[$scene].add(fillLight);
+        });
+      </script>
     </model-viewer>
   </body>
 </html>
