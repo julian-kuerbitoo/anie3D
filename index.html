@@ -29,17 +29,17 @@
           // Luz principal - Petal Frost (rosado suave, frontal)
           viewer.setEnvironmentAndSkybox = null;
 
-          const mainLight = new THREE.DirectionalLight(0xFBDAF7, 2.0);
+          const mainLight = new THREE.DirectionalLight(0xFBDAF7, 4.0);
           mainLight.position.set(2, 3, 2);
           viewer[$scene].add(mainLight);
 
           // Rim light - Medium Slate Blue (detrás, da volumen)
-          const rimLight = new THREE.DirectionalLight(0x7B75D1, 1.5);
+          const rimLight = new THREE.DirectionalLight(0x7B75D1, 3.5);
           rimLight.position.set(-2, 2, -3);
           viewer[$scene].add(rimLight);
 
           // Fill light - Pastel Petal (lado izquierdo, suaviza sombras)
-          const fillLight = new THREE.DirectionalLight(0xF4C3D0, 1.0);
+          const fillLight = new THREE.DirectionalLight(0xF4C3D0, 2.0);
           fillLight.position.set(-3, 1, 1);
           viewer[$scene].add(fillLight);
         });
