@@ -13,9 +13,15 @@
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js">
     </script>
     <model-viewer
-      src="https://cdn.jsdelivr.net/gh/julian-kuerbitoo/anie3D@main/AnieChibiRetopo-final-v2.glb"
-      auto-rotate
-      camera-controls>
+      src="https://cdn.jsdelivr.net/gh/julian-kuerbitoo/anie3D@main/AnieChibiRetopo-v2.glb"
+      camera-controls
+      disable-zoom
+      min-camera-orbit="auto auto auto"
+      max-camera-orbit="auto auto auto"
+      camera-orbit="0deg 75deg 105%"
+      environment-image="neutral"
+      exposure="1.2"
+      shadow-intensity="0.8">
     </model-viewer>
   </body>
 </html>
